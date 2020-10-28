@@ -1,0 +1,4 @@
+// Global override to make sure no horizontal scrollbars show up for the main body
+.container-fluid {
+  overflow-x: hidden;
+}

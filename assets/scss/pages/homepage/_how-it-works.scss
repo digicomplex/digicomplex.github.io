@@ -1,0 +1,20 @@
+.how-it-works {
+  background: transparent url('../images/how-it-works-background.jpg') no-repeat center center / cover;
+  padding: 5em;
+
+  h2 {
+    font-weight: 400;
+  }
+
+  h3 {
+    font-weight: 500;
+    line-height: 1.6em;
+  }
+
+  p {
+    max-width: 65%;
+    margin: 0 auto;
+    font-weight: 400;
+    opacity: 0.75;
+  }
+}

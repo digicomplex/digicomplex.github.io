@@ -1,0 +1,11 @@
+.btn {
+  text-transform: uppercase;
+}
+
+.btn-rounded {
+  border-radius: 100em;
+}
+
+[class^="btn-outline-"], [class*=" btn-outline-"] {
+  border-width: 2px;
+}

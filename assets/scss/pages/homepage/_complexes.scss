@@ -1,0 +1,16 @@
+.complexes {
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    z-index: 1001;
+  }
+
+  ul {
+    li {
+      margin: 0;
+      padding: 0.55em 0.65em;
+      font-weight: 500;
+      font-size: 0.85em;
+    }
+  }
+}

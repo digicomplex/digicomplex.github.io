@@ -1,0 +1,33 @@
+.video-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  opacity: 1;
+  background-color: inherit;
+
+  video {
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  &.blend-normal {
+    &::after {
+      mix-blend-mode: normal;
+    }
+  }
+
+  &::after {
+    content: "";
+    background-color: inherit;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: hard-light;
+  }
+}

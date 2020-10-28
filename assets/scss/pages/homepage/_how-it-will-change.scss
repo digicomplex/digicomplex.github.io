@@ -1,0 +1,17 @@
+.how-it-will-change {
+  h3 {
+    font-weight: 400;
+    margin-bottom: 1em;
+  }
+
+  h3 {
+    width: 55%;
+    line-height: 1.45em;
+    margin: 1em auto 0.5em;
+    opacity: 0.75;
+
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+  }
+}
