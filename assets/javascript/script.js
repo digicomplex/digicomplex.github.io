@@ -100,9 +100,8 @@ $(document).ready(function () {
 
     // Share Telegram
     $('.share-telegram').on('click', function (e) {
-
         window.open(
-            'https://telegram.me/share/url?url=https://www.digicomplex.co?complex=#slug#&text=Hey, I just signed up #complex# for Digicomplex. They will create a private network just for us! We need #number# more registrations before Digicomplex comes to #complex#. Go sign up now @ https://www.digicomplex.co',
+            'https://telegram.me/share/url?url=https://www.digicomplex.co?complex=#slug#&text=Hey, I just signed up #complex# for Digicomplex. They will create a private network just for us! We need #number# more registrations before Digicomplex comes to #complex#. Go sign up now @ https://www.digicomplex.co?slug=#slug#',
         );
 
         e.preventDefault();
