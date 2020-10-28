@@ -8094,21 +8094,21 @@ img {
     @media (max-width: 767.98px) {
       .page-homepage header p {
         font-size: 1.25em; } }
-.page-homepage .what-you-eat-today {
+.page-homepage .what-happens-today {
   padding: 5em; }
-  .page-homepage .what-you-eat-today h2 {
+  .page-homepage .what-happens-today h2 {
     font-weight: 400; }
-  .page-homepage .what-you-eat-today h3 {
+  .page-homepage .what-happens-today h3 {
     font-weight: 500;
     max-width: 65%;
     margin: 0 auto; }
-  .page-homepage .what-you-eat-today .image-wrapper {
+  .page-homepage .what-happens-today .image-wrapper {
     background: #fff;
     width: 12.5em;
     height: 12.5em;
     padding: 1.5em;
     border-radius: 100em; }
-    .page-homepage .what-you-eat-today .image-wrapper img {
+    .page-homepage .what-happens-today .image-wrapper img {
       width: 80%;
       display: block;
       margin: 0 auto; }
