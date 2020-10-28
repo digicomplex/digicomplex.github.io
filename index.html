@@ -365,9 +365,14 @@
                                 <h5>Spread the word</h5>
                                 <ul>
                                     <li class="d-inline-block mx-2">
-                                        <a href="#"><i class="fab fa-whatsapp"></i></a></li>
-                                    <li class="d-inline-block mx-2"><a href="#">
-                                            <i class="fab fa-telegram-plane"></i></a>
+                                        <a href="#" class="share-whatsapp">
+                                            <i class="fab fa-whatsapp "></i>
+                                        </a>
+                                    </li>
+                                    <li class="d-inline-block mx-2">
+                                        <a href="#" class="share-telegram">
+                                            <i class="fab fa-telegram-plane"></i>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -408,23 +413,19 @@
                     <div class="flex-fill">
                         <small class="mt-1 text-black-50 text-uppercase text-center d-block">Share
                             on<br />WhatsApp</small>
-                        <a class="btn btn-primary btn-block link-replace "
-                            href="https://api.whatsapp.com/send?text=Hey, I just signed up #complex# for Digicomplex. They will create a private network just for us! We need #number# more registrations before Digicomplex comes to #complex#. Go sign up now @ https://www.digicomplex.co"
-                            target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a class="btn btn-primary btn-block share-whatsapp" href="#"><i
+                                class="fab fa-whatsapp"></i></a>
                     </div>
                     <div class="flex-fill">
                         <small class="mt-1 text-black-50 text-uppercase text-center d-block">Share
                             on<br />Telegram</small>
-                        <a class="btn btn-dark btn-block link-replace share-telegram"
-                            href="https://telegram.me/share/url?url=https://www.digicomplex.co&text=Hey, I just signed up #complex# for Digicomplex. They will create a private network just for us! We need #number# more registrations before Digicomplex comes to #complex#. Go sign up now @ https://www.digicomplex.co"
-                            target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        <a class="btn btn-dark btn-block share-telegram" href="#"><i
+                                class="fab fa-telegram-plane"></i></a>
                     </div>
                     <div class="flex-fill">
                         <small class="mt-1 text-black-50 text-uppercase text-center d-block">Copy
                             to<br />clipboard</small>
-                        <a class="btn btn-light btn-block" href="#"
-                            onclick="copyTextToClipboard('Hey, I just signed up for Digicomplex. They will create a private network just for us! We need just a few more registrations before Digicomplex comes to our complex! Go sign up now @ https://www.digicomplex.co!'); return false;"><i
-                                class="fal fa-clipboard"></i></a>
+                        <a class="btn btn-light btn-block share-copy" href="#"><i class="fal fa-clipboard"></i></a>
                     </div>
                 </div>
             </div>
@@ -462,23 +463,19 @@
                     <div class="flex-fill">
                         <small class="mt-1 text-black-50 text-uppercase text-center d-block">Share
                             on<br />Whatsapp</small>
-                        <a class="btn btn-primary btn-block link-replace"
-                            href="https://api.whatsapp.com/send?text=Hey, I just signed up #complex# for Digicomplex. They will create a private network just for us! We need #number# more registrations before Digicomplex comes to #complex#. Go sign up now @ https://www.digicomplex.co"
-                            target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a class="btn btn-primary btn-block share-whatsapp" href="#"><i
+                                class="fab fa-whatsapp"></i></a>
                     </div>
                     <div class="flex-fill">
                         <small class="mt-1 text-black-50 text-uppercase text-center d-block">Share
                             on<br />Telegram</small>
-                        <a class="btn btn-dark btn-block link-replace"
-                            href="https://telegram.me/share/url?url=https://www.digicomplex.co&text=Hey, I just signed up #complex# for Digicomplex. They will create a private network just for us! We need #number# more registrations before Digicomplex comes to #complex#. Go sign up now @ https://www.digicomplex.co"
-                            target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        <a class="btn btn-dark btn-block share-telegram" href="#" target="_blank"><i
+                                class="fab fa-telegram-plane"></i></a>
                     </div>
                     <div class="flex-fill">
                         <small class="mt-1 text-black-50 text-uppercase text-center d-block">Copy
                             to<br />Clipboard</small>
-                        <a class="btn btn-light btn-block" href="#"
-                            onclick="copyTextToClipboard('Hey, I just signed up for Agricomplex. They deliver organic veggies at the same price as regular ones!  If you sign up too, Agricomplex comes to our society faster. Go sign up now @ https://www.agricomplex.in/'); return false;"><i
-                                class="fal fa-clipboard"></i></a>
+                        <a class="btn btn-light btn-block share-copy" href="#"><i class="fal fa-clipboard"></i></a>
                     </div>
                 </div>
             </div>
@@ -497,30 +494,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-    <script>
-        const client = algoliasearch("A6INN46K03", "2d473a85b657c009be86350fb2694079");
-        const players = client.initIndex('Colony_production');
-        autocomplete('#aa-search-input', {}, [
-            {
-                source: autocomplete.sources.hits(players, { hitsPerPage: 3 }),
-                displayKey: 'name',
-                templates: {
-                    suggestion({ _highlightResult }) {
-                        return `<span>${_highlightResult.name.value}</span>`;
-                    }
-                }
-            }
-        ]).on('focus', function () {
-            $('.fixed-floater').trigger('click');
-        }).on('autocomplete:selected', function (event, suggestion, dataset, context) {
-            $('[name="complex_id"]').attr('value', suggestion.id);
-        }).on('autocomplete:autocompleted', function (event, suggestion, dataset, context) {
-            $('[name="complex_id"]').attr('value', suggestion.id);
-        });
-
-    </script>
     <script type="text/javascript" src="assets/javascript/essentials.js?MRd0s1iXCbMgg1ys91Qvs3sss3Xipmas3s4MD"></script>
     <script type="text/javascript" src="assets/javascript/script.js?MRd0s1iXCbMgg1ys91Qvs3sss3Xipmas3s4MD" async
         defer></script>

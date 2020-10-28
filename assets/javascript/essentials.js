@@ -23,7 +23,6 @@ var essentials = function () {
         global: function () {
             return {
                 init: function () {
-                    // essentials().global().scrollReveal();
                     essentials().global().tooltips();
                 },
 
@@ -59,7 +58,16 @@ String.prototype.replaceAll = function (search, replacement) {
     return target.split(search).join(replacement);
 };
 
-function fallbackCopyTextToClipboard(text) {
+
+function copy(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text);
+    } else {
+        copyFallback(text);
+    }
+}
+
+function copyFallback(text) {
     var textArea = document.createElement("textarea");
     textArea.value = text;
     document.body.appendChild(textArea);
@@ -67,23 +75,23 @@ function fallbackCopyTextToClipboard(text) {
     textArea.select();
 
     try {
-        var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-        console.log('Fallback: Copying text command was ' + msg);
-    } catch (err) {
-        console.error('Fallback: Oops, unable to copy', err);
-    }
+        document.execCommand('copy');
+    } catch (err) { }
 
     document.body.removeChild(textArea);
 }
-function copyTextToClipboard(text) {
-    if (!navigator.clipboard) {
-        fallbackCopyTextToClipboard(text);
-        return;
+
+function getParam(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
     }
-    navigator.clipboard.writeText(text).then(function() {
-        console.log('Async: Copying to clipboard was successful!');
-    }, function(err) {
-        console.error('Async: Could not copy text: ', err);
-    });
-}
+};
