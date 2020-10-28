@@ -21,24 +21,43 @@ $(document).ready(function () {
         $body.toggleClass('navigation-toggled');
     });
 
-    // Autocomplete
-    // autocomplete('#aa-search-input', {}, [
-    //     {
-    //         source: autocomplete.sources.hits(players, { hitsPerPage: 3 }),
-    //         displayKey: 'name',
-    //         templates: {
-    //             suggestion({ _highlightResult }) {
-    //                 return `<span>${_highlightResult.name.value}</span>`;
-    //             }
-    //         }
-    //     }
-    // ]).on('focus', function () {
-    //     $('.fixed-floater').trigger('click');
-    // }).on('autocomplete:selected', function (event, suggestion, dataset, context) {
-    //     $('[name="complex_id"]').attr('value', suggestion.id);
-    // }).on('autocomplete:autocompleted', function (event, suggestion, dataset, context) {
-    //     $('[name="complex_id"]').attr('value', suggestion.id);
-    // });
+    console.log("kkk")
+         $("#aa-search-input").select2({
+            ajax: {
+                delay: 300,
+                url: 'https://db.getstaxapp.com/v1/graphql',
+                type: 'POST',
+                beforeSend: function(request) {
+                    request.setRequestHeader("x-hasura-access-key", "bella40deplorel98houston86enfant55house");
+
+                },
+                data: function(params){
+                    var data = "%"+params['term']+"%"
+                    var query = JSON.stringify({ query:`{
+                    complexes(where: {name: {_like: "${data}"}}) {
+                        id
+                        name
+                    }
+                    }`
+                })
+                return query
+                },
+                dataType: 'json',
+                processResults: function (data) {
+                    obj = []
+                    data.data.complexes.forEach(element => {
+                        obj.push({"id":element['id'], text: element["name"]})
+                    });
+                    return {
+                        results: obj
+                    };
+                }
+                // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+            },
+        
+            
+        })
+
 
     // Sign up
     $('#intent').on('submit', function (e) {
