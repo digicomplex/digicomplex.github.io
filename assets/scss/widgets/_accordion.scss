@@ -1,0 +1,22 @@
+.accordion {
+  .card {
+    border: 0 transparent;
+
+    .card-header {
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+      background-color: transparent;
+      border: 0 transparent;
+      color: $primary;
+      font-weight: 600;
+      border-bottom: 2px solid $primary;
+    }
+
+    .card-body {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+  }
+}

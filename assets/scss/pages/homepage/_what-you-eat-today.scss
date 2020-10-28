@@ -1,0 +1,27 @@
+.what-you-eat-today {
+  padding: 5em;
+
+  h2 {
+    font-weight: 400;
+  }
+
+  h3 {
+    font-weight: 500;
+    max-width: 65%;
+    margin: 0 auto;
+  }
+
+  .image-wrapper {
+    background: #fff;
+    width: 12.5em;
+    height: 12.5em;
+    padding: 1.5em;
+    border-radius: 100em;
+
+    img {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+footer {
+  text-transform: uppercase;
+
+  &.container, &.container-fluid {
+    background-color: $white;
+    color: $black;
+    padding: 4em 0;
+    font-size: 0.85em;
+
+    @include media-breakpoint-down(md) {
+      padding: 2.5em 1em;
+      font-size: 0.95em;
+    }
+
+    a {
+      display: inline-block;
+      color: $black;
+      line-height: 1.75em;
+
+      &.link-heading {
+        font-weight: 600;
+      }
+    }
+
+    h5 {
+      opacity: 0.45;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      li {
+        padding: 0;
+        margin: 0;
+
+        a {
+          font-size: 1.85em;
+          color: #555555;
+        }
+      }
+    }
+
+    .secondary-menu {
+      padding-bottom: 1.25em;
+
+      address {
+        padding: 0;
+        margin: 0;
+      }
+
+      .social-media-links {
+        li {
+          display: inline-block;
+
+          a {
+            font-size: 2em;
+            padding-left: 1em;
+
+            @include media-breakpoint-down(md) {
+              font-size: 1.5em;
+              padding-right: 1em;
+            }
+
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+      }
+    }
+
+    .tertiary-menu {
+      ul {
+        text-align: right;
+
+        @include media-breakpoint-down(md) {
+          text-align: center;
+        }
+
+        li {
+          display: inline-block;
+
+          a {
+            padding-left: 1em;
+          }
+        }
+      }
+    }
+
+    .copyright {
+      font-size: 0.75em;
+    }
+  }
+}

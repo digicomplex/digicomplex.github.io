@@ -1,0 +1,38 @@
+header {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+
+  @include media-breakpoint-down(md) {
+    min-height: 450px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    min-height: 90vh;
+  }
+
+  &.container-fluid {
+    padding: 2em 3em;
+
+    @include media-breakpoint-down(md) {
+      padding: 1.5em 2em;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    line-height: 1.05;
+  }
+
+  p {
+    margin: 0.15em 0 0;
+    font-size: 1.5em;
+    opacity: .75;
+
+    @include media-breakpoint-down(md) {
+      font-size: 0.9em;
+    }
+  }
+}

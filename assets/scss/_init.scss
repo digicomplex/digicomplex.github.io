@@ -1,0 +1,16 @@
+//
+// Bootstrap compilation with overrides
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "bootstrap-overrides";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+//
+// Global components
+@import "components/init";
+//
+// Widgets
+@import "widgets/init";
+//
+// Pages
+@import "pages/init";
+
