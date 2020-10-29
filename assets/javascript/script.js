@@ -1,4 +1,7 @@
 $(document).ready(function () {
+     // set slug in select2
+     autoInitiateComplex();
+
     // Scroll to hyperlink
     if (essentials().isTabletOrPhone()) {
         $("a").smoothScroll({speed: 500, offset: -90});
@@ -227,6 +230,47 @@ function openCompletedModal(complexSlug) {
             $("#modal-complete").modal("show");
         },
     });
+}
+
+function autoInitiateComplex () {
+    var urlParams = new URLSearchParams(location.search),
+        params = null;
+    for (const [key, value] of urlParams) {
+        params = value
+    }
+    if (urlParams.has('slug')){
+        var query = `
+        query MyQuery($input: String!) {
+            complexes(where: {slug: {_eq: $input}}) {
+            id
+            name
+            slug
+        }
+      }`,
+    slug = '';
+    $.ajax({
+        url: "https://db.getstaxapp.com/v1/graphql",
+        type: "POST",
+        headers: {
+        "x-hasura-access-key": "bella40deplorel98houston86enfant55house",
+        },
+        data: JSON.stringify({
+            query: query,
+            variables: {
+                input: params,
+            },
+        }),
+        success: function (data) {
+            if (data.data.complexes.length > 0){
+                var appendData = data.data.complexes[0]
+
+                var newOption = new Option(appendData.name, appendData.id, false, false);
+                $("#aa-search-input").append(newOption).trigger('change');
+            }
+        },
+    });
+  
+    }
 }
 
 // Header Change Color on Scroll
