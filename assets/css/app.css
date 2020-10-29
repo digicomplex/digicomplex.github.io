@@ -11634,7 +11634,7 @@ img {
 
 @media (max-width: 767.98px) {
   .page-homepage .what-happens-today .section-2 {
-    text-align: center !important;
+    text-align: left !important;
     padding: 0;
   }
   .page-homepage .what-happens-today .section-2 li {
@@ -11659,7 +11659,7 @@ img {
 
 @media (max-width: 767.98px) {
   .page-homepage .what-happens-today .section-2-other {
-    text-align: center !important;
+    text-align: left !important;
     padding: 0;
   }
   .page-homepage .what-happens-today .section-2-other li {
@@ -11714,7 +11714,7 @@ img {
 
 @media (max-width: 767.98px) {
   .page-homepage .how-it-will-change .small-img img {
-    width: 150px;
+    width: 120px;
     margin: 0 auto;
     display: block;
   }
