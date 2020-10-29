@@ -75,12 +75,7 @@ $(document).ready(function () {
         formData.forEach(element => {
             data_obj[element['name']] = element['value'] 
         });
-        console.log(data_obj)
-        // data_obj = {
-        //     mobile: "9869925100",
-        //     complex_slug: "saiven-siesta"
-        // }
-        // console.log(data_obj)
+        
         var mutation = `
             mutation insert_single_article($object: users_insert_input!) {
                 insert_users_one(object: $object) {
@@ -110,6 +105,7 @@ $(document).ready(function () {
                 $("#submit .text").removeClass('d-none')
                 $("#submit .spinner").addClass('d-none')
                 $(".message").text("You succeccfully signed in.....").addClass('text-success')
+                openCompletedModal(data.data.insert_users_one.complex_slug)
                 
             },
             error: function(){
@@ -122,7 +118,7 @@ $(document).ready(function () {
             localStorage.setItem("slug", data.data.insert_users_one.complex_slug);
 
         });
-       
+        
     });
 
     // Url contains complex
@@ -182,6 +178,38 @@ $window.on('scroll', function () {
         }, 450);
     }
 });
+
+function openCompletedModal(complexSlug) {
+    var query = `
+        query aggregate_user_count($input: String!) {
+            users_aggregate(where: {complex_slug: {_eq: $input}}) {
+            aggregate {
+                count
+            }
+            }
+        }`;
+    $.ajax({
+        url: 'https://db.getstaxapp.com/v1/graphql',
+        type: 'POST',
+        headers: {
+            "x-hasura-access-key": "bella40deplorel98houston86enfant55house"
+
+        },
+        data:  JSON.stringify({
+                query: query,
+                variables: {
+                    input: complexSlug
+                    
+                },
+                }),
+        success: function(data){
+            $(".data-number-of-people").text(data.data.users_aggregate.aggregate.count)
+            $("#modal-complete").modal('show')
+            
+        }     
+    })
+    
+}
 
 // Header Change Color on Scroll
 $(function () {
