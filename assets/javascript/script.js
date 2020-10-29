@@ -115,9 +115,9 @@ $(document).ready(function () {
                 $("#submit .text").removeClass("d-none");
                 
                 $("#submit .spinner").addClass("d-none");
-                $(".message")
-                    .text("Congratulations! 🙌 You are now a part of DigiComplex!!!")
-                    .addClass("text-success");
+                // $(".message")
+                //     .text("Congratulations! 🙌 You are now a part of DigiComplex!!!")
+                //     .addClass("text-success");
                 openCompletedModal(response.data.insert_users_one.complex_slug);
             },
             error: function () {
