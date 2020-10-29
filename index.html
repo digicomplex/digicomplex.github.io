@@ -30,6 +30,8 @@
 
     <!-- Favicon -->
     <!-- https://realfavicongenerator.net/ -->
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
@@ -366,8 +368,11 @@
                                                     placeholder="Enter your mobile number (e.g. 9987480784)"
                                                     name="mobile" required title="Please enter a valid mobile number" />
                                             </div>
-                                            <button type="submit" class="btn btn-primary btn-block" id="submit">Sign up
-                                                now</button>
+                                            <button type="submit" class="btn btn-primary btn-block" id="submit">
+                                                <span class="spinner-border spinner-border-sm d-none spinner" ></span>
+                                                <span class="text" >Sign up now</span>
+                                            </button>
+                                            <p class="message mt-2"></p>
 
                                         </form>
                                         <h5 class="mt-4">Have questions? Ping us on <a href="mailto:hi@digicomplex.co"
@@ -526,7 +531,6 @@
     <script type="text/javascript" src="assets/javascript/essentials.js?MRd0s1iXCbMgg1ys91Qvs3sss3Xipmas3s4MD"></script>
     <script type="text/javascript" src="assets/javascript/script.js?MRd0s1iXCbMgg1ys91Qvs3sss3Xipmas3s4MD" async
         defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <!-- /Scripts -->
 </body>
