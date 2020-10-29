@@ -14,4 +14,10 @@
       width: 100%;
     }
   }
+  
+  .p-sm-50{
+    @include media-breakpoint-down(sm) {
+      padding: 0 50px;
+    }
+  }
 }

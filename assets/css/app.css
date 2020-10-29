@@ -11631,6 +11631,17 @@ img {
   padding: 5px;
 }
 
+@media (max-width: 767.98px) {
+  .page-homepage .what-happens-today .section-2 {
+    text-align: left !important;
+    padding: 0;
+  }
+  .page-homepage .what-happens-today .section-2 li {
+    margin-left: 0px;
+    padding: 5px;
+  }
+}
+
 .page-homepage .what-happens-today .image-wrapper {
   background: #fff;
   width: 12.5em;
@@ -11660,6 +11671,12 @@ img {
 @media (max-width: 767.98px) {
   .page-homepage .how-it-will-change h3 {
     width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-homepage .how-it-will-change .p-sm-50 {
+    padding: 0 50px;
   }
 }
 
