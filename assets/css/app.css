@@ -10807,6 +10807,7 @@ header p {
 
 footer {
   text-transform: uppercase;
+  position: relative;
   z-index: 100;
 }
 
@@ -11726,7 +11727,7 @@ img {
   right: 50%;
   bottom: 15px;
   z-index: 99;
-  margin: 0 -70.5px 0 0;
+  margin: 0 -60.5px 0 0;
 }
 
 .page-homepage .complexes {

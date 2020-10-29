@@ -113,7 +113,7 @@ $(document).ready(function () {
                 localStorage.setItem("slug", slug);
 
                 $("#submit .text").removeClass("d-none");
-                
+
                 $("#submit .spinner").addClass("d-none");
                 // $(".message")
                 //     .text("Congratulations! 🙌 You are now a part of DigiComplex!!!")
@@ -136,8 +136,10 @@ $(document).ready(function () {
     // Share WhatsApp
     $(".share-whatsapp").on("click", function (e) {
         var userCount = (localStorage.getItem('user_count') > 25) ? 0 : (25 - localStorage.getItem('user_count'))
+        var complex = localStorage.getItem('complex');
+        var slug = localStorage.getItem('slug');
         window.open(
-            `https://api.whatsapp.com/send?text=Hey, I just signed up ${localStorage.getItem('complex')} for Digicomplex. They will create a private network just for us! We need ${userCount} more registrations before Digicomplex comes to ${localStorage.getItem('complex')}. Go sign up now @ https://www.digicomplex.co?complex=${localStorage.getItem('slug')}`
+            `https://api.whatsapp.com/send?text=Hey, I just signed up ${complex || ""} for Digicomplex. They will create a private network just for us! We need ${userCount} more registrations before Digicomplex comes to ${complex || "us"}. Go sign up now @ https://www.digicomplex.co?complex=${slug|| ""}`
         );
 
         e.preventDefault();
@@ -146,8 +148,10 @@ $(document).ready(function () {
     // Share Telegram
     $(".share-telegram").on("click", function (e) {
         var userCount = (localStorage.getItem('user_count') > 25) ? 0 : (25 - localStorage.getItem('user_count'))
+        var complex = localStorage.getItem('complex');
+        var slug = localStorage.getItem('slug');
         window.open(
-            `https://telegram.me/share/url?url=https://www.digicomplex.co?complex=${localStorage.getItem('slug')} &text=Hey, I just signed up ${localStorage.getItem('complex')}  for Digicomplex. They will create a private network just for us! We need ${userCount} more registrations before Digicomplex comes to ${localStorage.getItem('complex')} . Go sign up now @ https://www.digicomplex.co?slug=${localStorage.getItem('slug')}`
+            `https://telegram.me/share/url?url=https://www.digicomplex.co?complex=${slug|| ""} &text=Hey, I just signed up ${complex || ""}  for Digicomplex. They will create a private network just for us! We need ${userCount} more registrations before Digicomplex comes to ${complex|| "us"} . Go sign up now @ https://www.digicomplex.co?slug=${slug|| ""}`
         );
 
         e.preventDefault();
@@ -156,7 +160,7 @@ $(document).ready(function () {
     // Share copy
     $(".share-copy").on("click", function (e) {
         copy(
-            `Hey, I just signed up for Digicomplex. They will create a private network just for us! We need just a few more registrations before Digicomplex comes to our complex! Go sign up now @ https://www.digicomplex.co?slug=${localStorage.getItem('slug')} !`
+            `Hey, I just signed up for Digicomplex. They will create a private network just for us! We need just a few more registrations before Digicomplex comes to our complex! Go sign up now @ https://www.digicomplex.co?slug=${localStorage.getItem('slug') || ""} !`
         );
 
         e.preventDefault();
