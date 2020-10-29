@@ -1939,8 +1939,8 @@ fieldset:disabled a.btn {
     border-color: #00adb3; }
   .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #537a23;
-    border-color: #4c7021; }
+    background-color: #00868a;
+    border-color: #00868a; }
     .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
       box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(110, 161, 47, 0.5); }
 
@@ -3628,7 +3628,7 @@ input[type="button"].btn-block {
   .badge-primary[href]:hover, .badge-primary[href]:focus {
     color: #fff;
     text-decoration: none;
-    background-color: #537a23; }
+    background-color: #00868a; }
 
 .badge-secondary {
   color: #222222;
@@ -4532,7 +4532,7 @@ button.close {
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #537a23 !important; }
+  background-color: #00868a !important; }
 
 .bg-secondary {
   background-color: #fff !important; }
@@ -7251,7 +7251,7 @@ button.bg-dark:focus {
   color: #00adb3 !important; }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #537a23 !important; }
+  color: #00868a !important; }
 
 .text-secondary {
   color: #fff !important; }
@@ -7884,7 +7884,7 @@ img {
     top: 0;
     height: 100%;
     width: 51%;
-    background: #000; }
+    background: rgb(255, 255, 255); }
   .scroll-downer .chevron:before {
     left: 0;
     transform: skew(0deg, 30deg); }
@@ -8140,7 +8140,7 @@ img {
   position: relative;
   background-color: #F7F9FA;
   padding: 5em 2em;
-  z-index: 1001; }
+  z-index: 100; }
   @media (max-width: 767.98px) {
     .page-homepage .sign-up {
       padding-top: 3.5em;
@@ -8168,7 +8168,7 @@ img {
   position: relative; }
   @media (min-width: 768px) {
     .page-homepage .complexes {
-      z-index: 1001; } }
+      z-index: 100; } }
   .page-homepage .complexes ul li {
     margin: 0;
     padding: 0.55em 0.65em;
