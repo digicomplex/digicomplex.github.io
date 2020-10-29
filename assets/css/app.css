@@ -10728,7 +10728,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .navbar .nav-item .nav-link {
-  color: rgba(0, 0, 0, 0.75);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 @media (max-width: 767.98px) {
@@ -10739,9 +10739,23 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+.navbar .nav-item .nav-link:hover {
+  color: #00adb3;
+}
+
 .scrolled .navbar, .navigation-toggled .navbar {
   color: 0;
   background-color: rgba(255, 255, 255, 0.95);
+}
+
+.navbar-fixed-top.scrolled .nav-link {
+  color: black;
+}
+
+.navbar-fixed-top.scrolled {
+  color: black;
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
 }
 
 header {
@@ -11286,7 +11300,7 @@ img {
   top: 0;
   height: 100%;
   width: 51%;
-  background: #000;
+  background: #fff;
 }
 
 .scroll-downer .chevron:before {
@@ -11601,6 +11615,18 @@ img {
   font-weight: 500;
   max-width: 65%;
   margin: 0 auto;
+}
+
+.page-homepage .what-happens-today .section-2 {
+  color: #000;
+  position: relative;
+  text-align: left;
+  list-style-type: none;
+  padding-top: 20px;
+}
+
+.page-homepage .what-happens-today .section-2 li {
+  padding: 5px;
 }
 
 .page-homepage .what-happens-today .image-wrapper {
