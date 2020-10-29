@@ -8105,7 +8105,6 @@ img {
     font-weight: 400; }
   .page-homepage .what-happens-today h3 {
     font-weight: 500;
-    max-width: 65%;
     margin: 0 auto; }
   .page-homepage .what-happens-today .image-wrapper {
     background: #fff;
@@ -8137,7 +8136,6 @@ img {
     font-weight: 500;
     line-height: 1.6em; }
   .page-homepage .how-it-works p {
-    max-width: 65%;
     margin: 0 auto;
     font-weight: 400;
     opacity: 0.75; }
@@ -8206,10 +8204,10 @@ img {
 }
 
 .section-2{
-  text-align: center;
-    list-style-type: none;
-    padding-top: 20px;
-    margin-left: -40px;
+  position: relative;
+  text-align: left;
+  list-style-type: none;
+  padding-top: 20px;
 }
 
 .custom-h2{
