@@ -11642,6 +11642,10 @@ img {
   }
 }
 
+.page-homepage .what-happens-today .sec-2 {
+  max-width: 10%;
+}
+
 .page-homepage .what-happens-today .image-wrapper {
   background: #fff;
   width: 12.5em;
