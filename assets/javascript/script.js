@@ -102,8 +102,7 @@ $(document).ready(function () {
                     },
                   }),
           }).done(function(data) {
-              console.log(data)
-            //   localStorage.setItem("user", JSON.stringify(storageCart));
+              localStorage.setItem("user", data.data.insert_users_one.id);
               localStorage.setItem("slug", data.data.insert_users_one.complex_slug);
 
           });
