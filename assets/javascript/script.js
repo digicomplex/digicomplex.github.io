@@ -26,16 +26,18 @@ $(document).ready(function () {
 
     $("#aa-search-input").select2({
         placeholder: "Search for your complex...",
+        minimumInputLength: 0,
         ajax: {
             delay: 300,
             url: "https://db.getstaxapp.com/v1/graphql",
             type: "POST",
+            
 
             data: function (params) {
-                var data = "%" + params["term"] + "%";
+                var data = "%" + (params["term"] || "") + "%";
                 var query = JSON.stringify({
                     query: `{
-                    complexes(where: {name: {_like: "${data}"}}) {
+                    complexes(where: {name: {_like: "%${data}%"}}) {
                         name
                         slug
                     }
@@ -154,7 +156,10 @@ $(document).ready(function () {
         copy(
             `Hey, I just signed up for Digicomplex. They will create a private network just for us! We need just a few more registrations before Digicomplex comes to our complex! Go sign up now @ https://www.digicomplex.co?slug=${localStorage.getItem('slug') || ""} !`
         );
-
+        console.log(e);
+        $(".share-copy").html(`<i class="fal fa-check-double"></i>`);
+        setTimeout(function(){ $(".share-copy").html(`<i class="fal fa-clipboard"></i>`); }, 5000);
+        alert("Message copied to clipboard")
         e.preventDefault();
     });
 });

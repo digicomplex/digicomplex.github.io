@@ -14,10 +14,14 @@
       width: 100%;
     }
   }
-  
-  .p-sm-50{
+
+  .small-img {
     @include media-breakpoint-down(sm) {
-      padding: 0 50px;
+      img {
+        width: 150px;
+        margin: 0 auto;
+        display: block;
+      }
     }
   }
 }
