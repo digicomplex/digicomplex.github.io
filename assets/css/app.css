@@ -11632,6 +11632,7 @@ img {
 
 .page-homepage .what-happens-today .section-2 li {
   font-size: medium;
+  font-style: italic;
   margin-left: -30px;
   padding: 5px;
 }
@@ -11657,6 +11658,7 @@ img {
 
 .page-homepage .what-happens-today .section-2-other li {
   font-size: medium;
+  font-style: italic;
   margin-left: -30px;
   padding: 5px;
 }
