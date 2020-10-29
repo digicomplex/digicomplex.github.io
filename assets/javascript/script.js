@@ -1,6 +1,6 @@
 $(document).ready(function () {
-     // set slug in select2
-     autoInitiateComplex();
+    // set slug in select2
+    autoInitiateComplex();
 
     // Scroll to hyperlink
     if (essentials().isTabletOrPhone()) {
@@ -31,7 +31,7 @@ $(document).ready(function () {
             delay: 300,
             url: "https://db.getstaxapp.com/v1/graphql",
             type: "POST",
-            
+
 
             data: function (params) {
                 var data = "%" + (params["term"] || "") + "%";
@@ -100,8 +100,8 @@ $(document).ready(function () {
                 },
             }),
             success: function (response) {
-                
-                var slug =complexSlug;
+
+                var slug = complexSlug;
 
                 localStorage.setItem("complex", complexName);
                 localStorage.setItem("slug", slug);
@@ -132,8 +132,13 @@ $(document).ready(function () {
         var userCount = (localStorage.getItem('user_count') > 25) ? 0 : (25 - localStorage.getItem('user_count'))
         var complex = localStorage.getItem('complex');
         var slug = localStorage.getItem('slug');
+        var message = `https://api.whatsapp.com/send?text=Hi! I just found out that we can have a private social network exclusively for our apartment complex. Interesting right? Check out Digicomplex and let's sign-up to get it activated fast @ https://www.digicomplex.co`
+        if (slug) {
+            message =
+                `https://api.whatsapp.com/send?text=Hey, I just signed up ${complex || ""} for Digicomplex. They will create a private network just for us! We need ${userCount} more registrations before Digicomplex comes to ${complex || "us"}. Go sign up now @ https://www.digicomplex.co?complex=${slug || ""}`
+        }
         window.open(
-            `https://api.whatsapp.com/send?text=Hey, I just signed up ${complex || ""} for Digicomplex. They will create a private network just for us! We need ${userCount} more registrations before Digicomplex comes to ${complex || "us"}. Go sign up now @ https://www.digicomplex.co?complex=${slug|| ""}`
+            message
         );
 
         e.preventDefault();
@@ -144,8 +149,13 @@ $(document).ready(function () {
         var userCount = (localStorage.getItem('user_count') > 25) ? 0 : (25 - localStorage.getItem('user_count'))
         var complex = localStorage.getItem('complex');
         var slug = localStorage.getItem('slug');
+        var message = `https://telegram.me/share/url?url=https://www.digicomplex.co&text=Hi! I just found out that we can have a private social network exclusively for our apartment complex. Interesting right? Check out Digicomplex and let's sign-up to get it activated fast @ https://www.digicomplex.co`
+        if (slug) {
+            message =
+                `https://telegram.me/share/url?url=https://www.digicomplex.co?complex=${slug || ""} &text=Hey, I just signed up ${complex || ""}  for Digicomplex. They will create a private network just for us! We need ${userCount} more registrations before Digicomplex comes to ${complex || "us"} . Go sign up now @ https://www.digicomplex.co?slug=${slug || ""}`
+        }
         window.open(
-            `https://telegram.me/share/url?url=https://www.digicomplex.co?complex=${slug|| ""} &text=Hey, I just signed up ${complex || ""}  for Digicomplex. They will create a private network just for us! We need ${userCount} more registrations before Digicomplex comes to ${complex|| "us"} . Go sign up now @ https://www.digicomplex.co?slug=${slug|| ""}`
+            message
         );
 
         e.preventDefault();
@@ -153,12 +163,19 @@ $(document).ready(function () {
 
     // Share copy
     $(".share-copy").on("click", function (e) {
+        var message = `Hi! I just found out that we can have a private social network exclusively for our apartment complex. Interesting right? Check out Digicomplex and let's sign-up to get it activated fast @ https://www.digicomplex.co`
+        if (localStorage.getItem('slug')) {
+            message =
+                `Hey, I just signed up for Digicomplex. They will create a private network just for us! We need just a few more registrations before Digicomplex comes to our complex! Go sign up now @ https://www.digicomplex.co?slug=${localStorage.getItem('slug') || ""} !`
+        }
         copy(
-            `Hey, I just signed up for Digicomplex. They will create a private network just for us! We need just a few more registrations before Digicomplex comes to our complex! Go sign up now @ https://www.digicomplex.co?slug=${localStorage.getItem('slug') || ""} !`
+            message
         );
         console.log(e);
         $(".share-copy").html(`<i class="fal fa-check-double"></i>`);
-        setTimeout(function(){ $(".share-copy").html(`<i class="fal fa-clipboard"></i>`); }, 5000);
+        setTimeout(function () {
+            $(".share-copy").html(`<i class="fal fa-clipboard"></i>`);
+        }, 5000);
         alert("Message copied to clipboard")
         e.preventDefault();
     });
@@ -231,24 +248,24 @@ function openCompletedModal(complexSlug) {
                 $('.progress-bar.progress-bar-striped').css('width', `${width}%`)
             }
 
-            if(Math.random() < 0.5) {
+            if (Math.random() < 0.5) {
                 $("#modal-complete").modal("show");
             } else {
                 $("#modal-success").modal("show");
             }
-            
-            
+
+
         },
     });
 }
 
-function autoInitiateComplex () {
+function autoInitiateComplex() {
     var urlParams = new URLSearchParams(location.search),
         params = null;
     for (const [key, value] of urlParams) {
         params = value
     }
-    if (urlParams.has('slug')){
+    if (urlParams.has('slug')) {
         var query = `
         query MyQuery($input: String!) {
             complexes(where: {slug: {_eq: $input}}) {
@@ -257,29 +274,29 @@ function autoInitiateComplex () {
             slug
         }
       }`,
-    slug = '';
-    $.ajax({
-        url: "https://db.getstaxapp.com/v1/graphql",
-        type: "POST",
-        headers: {
-        "x-hasura-access-key": "bella40deplorel98houston86enfant55house",
-        },
-        data: JSON.stringify({
-            query: query,
-            variables: {
-                input: params,
+            slug = '';
+        $.ajax({
+            url: "https://db.getstaxapp.com/v1/graphql",
+            type: "POST",
+            headers: {
+                "x-hasura-access-key": "bella40deplorel98houston86enfant55house",
             },
-        }),
-        success: function (data) {
-            if (data.data.complexes.length > 0){
-                var appendData = data.data.complexes[0]
+            data: JSON.stringify({
+                query: query,
+                variables: {
+                    input: params,
+                },
+            }),
+            success: function (data) {
+                if (data.data.complexes.length > 0) {
+                    var appendData = data.data.complexes[0]
 
-                var newOption = new Option(appendData.name, appendData.id, false, false);
-                $("#aa-search-input").append(newOption).trigger('change');
-            }
-        },
-    });
-  
+                    var newOption = new Option(appendData.name, appendData.id, false, false);
+                    $("#aa-search-input").append(newOption).trigger('change');
+                }
+            },
+        });
+
     }
 }
 
