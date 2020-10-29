@@ -21,86 +21,93 @@ $(document).ready(function () {
         $body.toggleClass('navigation-toggled');
     });
 
-    console.log("kkk")
-         $("#aa-search-input").select2({
-            ajax: {
-                delay: 300,
-                url: 'https://db.getstaxapp.com/v1/graphql',
-                type: 'POST',
-                beforeSend: function(request) {
-                    request.setRequestHeader("x-hasura-access-key", "bella40deplorel98houston86enfant55house");
 
-                },
-                data: function(params){
-                    var data = "%"+params['term']+"%"
-                    var query = JSON.stringify({ query:`{
+    $("#aa-search-input").select2({
+        ajax: {
+            delay: 300,
+            url: 'https://db.getstaxapp.com/v1/graphql',
+            type: 'POST',
+            beforeSend: function(request) {
+                request.setRequestHeader("x-hasura-access-key", "bella40deplorel98houston86enfant55house");
+
+            },
+            data: function(params){
+                var data = "%"+params['term']+"%"
+                var query = JSON.stringify({ query:`{
                     complexes(where: {name: {_like: "${data}"}}) {
                         id
                         name
+                        slug
                     }
                     }`
                 })
                 return query
-                },
-                dataType: 'json',
-                processResults: function (data) {
-                    obj = []
-                    data.data.complexes.forEach(element => {
-                        obj.push({"id":element['id'], text: element["name"]})
-                    });
-                    return {
-                        results: obj
-                    };
-                }
-                // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
             },
-        
-            
-        })
+            dataType: 'json',
+            processResults: function (data) {
+                obj = []
+                data.data.complexes.forEach(element => {
+                    obj.push({"id":element['id'], text: element["name"],slug: element["slug"]})
+                });
+                return {
+                    results: obj
+                };
+            }
+                // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+        },
+    })
 
+    $('#aa-search-input').on('select2:select', function (e) {
+        var data = e.params.data;
+       $("[name='complex_slug']").val(data["slug"])
+    });
 
+    
     // Sign up
     $('#intent').on('submit', function (e) {
-        var c = $.post("https://agricomplex-api.herokuapp.com/api/v1/users", $("#intent")
-            .serialize())
-            .done(function (data) {
-                var complex = data['colony'];
-                var number = 25 - data.count - 1;
-                var percentage = [((data.count + 1) / 25 * 100).toFixed(0), '%'].join('');
-                if (((data.count + 1) / 25 * 100) >= 100) {
-                    $('.data-number-of-people').text(data.count);
-                    $('.data-progress').text(percentage).css('width', [100, '%'].join(''));
-                    $('.data-complex').text([complex.name, complex.area].join(', '));
-                    $('#modal-complete').modal('show');
-
-                    // TODO replace with local storage
-                    $('.link-replace').each(function () {
-                        var href = $(this).attr('href');
-                        href = href.replaceAll('#complex#', complex.name);
-                        href = href.replaceAll('#number#', data.count);
-                        $(this).attr('href', href);
-                    });
-                } else {
-                    $('.data-number-of-people').text(number);
-                    $('.data-progress').text(percentage).css('width', percentage);
-                    $('.data-complex').text([complex.name, complex.area].join(', '));
-                    $('#modal-success').modal('show');
-
-                    // TODO replace with local storage
-                    $('.link-replace').each(function () {
-                        var href = $(this).attr('href');
-                        href = href.replaceAll('#complex#', complex.name);
-                        href = href.replaceAll('#number#', number);
-                        $(this).attr('href', href);
-                    });
-                }
-
-                fbq('track', 'CompleteRegistration', {
-                    currency: 'inr',
-                });
-            });
-
         e.preventDefault();
+        console.log('*********************')
+        var formData = $( this ).serializeArray()
+        data_obj ={}
+        formData.forEach(element => {
+            data_obj[element['name']] = element['value'] 
+        });
+        console.log(data_obj)
+        // data_obj = {
+        //     mobile: "9869925100",
+        //     complex_slug: "saiven-siesta"
+        // }
+        // console.log(data_obj)
+        var mutation = `
+            mutation insert_single_article($object: users_insert_input!) {
+                insert_users_one(object: $object) {
+                id
+                created_at
+                complex_slug
+                mobile
+                }
+            }`;
+        $.ajax({
+            url: 'https://db.getstaxapp.com/v1/graphql',
+            type: 'POST',
+            headers: {
+                "x-hasura-access-key": "bella40deplorel98houston86enfant55house"
+
+            },
+            data:  JSON.stringify({
+                    query: mutation,
+                    variables: {
+                        object: data_obj
+                      
+                    },
+                  }),
+          }).done(function(data) {
+              console.log(data)
+            //   localStorage.setItem("user", JSON.stringify(storageCart));
+              localStorage.setItem("slug", data.data.insert_users_one.complex_slug);
+
+          });
+       
     });
 
     // Url contains complex
