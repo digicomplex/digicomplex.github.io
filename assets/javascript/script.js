@@ -146,3 +146,31 @@ $(document).scroll(function () {
     $("body").toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
 });
 
+// Button hide on bottom
+var $window = $(window),
+    $document = $(document),
+    button = $('.btned');
+
+button.css({
+    opacity: 1
+});
+
+$window.on('scroll', function () {
+    if (($window.scrollTop() + $window.height()) == $document.height()) {
+        button.stop(true).animate({
+            opacity: 0
+        }, 450);
+    } else {
+        button.stop(true).animate({
+            opacity: 1
+        }, 450);
+    }
+});
+
+// Header Change Color on Scroll
+$(function () {
+    $(document).scroll(function () {
+        var $nav = $(".navbar-fixed-top");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      });
+  });
