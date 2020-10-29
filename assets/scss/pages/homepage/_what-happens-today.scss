@@ -11,6 +11,17 @@
     margin: 0 auto;
   }
 
+  .section-2{
+    color: $black;
+    position: relative;
+    text-align: left;
+    list-style-type: none;
+    padding-top: 20px;
+    li{
+      padding: 5px;
+    }
+  }
+  
   .image-wrapper {
     background: #fff;
     width: 12.5em;
