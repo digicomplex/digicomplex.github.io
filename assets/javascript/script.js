@@ -82,7 +82,7 @@ $(document).ready(function () {
         });
 
         var mutation = `
-            mutation insert_single_article($object: users_insert_input!) {
+            mutation insert_single_article($object: [users_insert_input!]!) {
                 insert_users(objects: $object) {
                 affected_rows
                 }
@@ -211,9 +211,9 @@ function openCompletedModal(complexSlug) {
             },
         }),
         success: function (data) {
-            var count = data.data.complexes.users_count;
+            var count = data.data.complexes[0].users_count;
             $(".data-number-of-people").text(
-                data.data.complexes.users_count
+                data.data.complexes[0].users_count
             );
             localStorage.setItem("user_count", JSON.stringify(count));
 
@@ -223,11 +223,16 @@ function openCompletedModal(complexSlug) {
                 if (ratio > 1) {
                     width = 100;
                 }
-                $('#complete-progress-bar').css('width', `${width}%`)
+                $('.progress-bar.progress-bar-striped').css('width', `${width}%`)
             }
 
-
-            $("#modal-complete").modal("show");
+            if(Math.random() < 0.5) {
+                $("#modal-complete").modal("show");
+            } else {
+                $("#modal-success").modal("show");
+            }
+            
+            
         },
     });
 }
