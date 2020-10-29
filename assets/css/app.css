@@ -11621,19 +11621,20 @@ img {
 .page-homepage .what-happens-today .section-2 {
   color: #000;
   position: relative;
-  text-align: center;
+  text-align: left;
   list-style-type: none;
   padding-top: 20px;
 }
 
 .page-homepage .what-happens-today .section-2 li {
+  font-size: medium;
   margin-left: -30px;
   padding: 5px;
 }
 
 @media (max-width: 767.98px) {
   .page-homepage .what-happens-today .section-2 {
-    text-align: left !important;
+    text-align: center !important;
     padding: 0;
   }
   .page-homepage .what-happens-today .section-2 li {
@@ -11642,8 +11643,41 @@ img {
   }
 }
 
+.page-homepage .what-happens-today .section-2-other {
+  color: #000;
+  position: relative;
+  text-align: right;
+  list-style-type: none;
+  padding-top: 20px;
+}
+
+.page-homepage .what-happens-today .section-2-other li {
+  font-size: medium;
+  margin-left: -30px;
+  padding: 5px;
+}
+
+@media (max-width: 767.98px) {
+  .page-homepage .what-happens-today .section-2-other {
+    text-align: center !important;
+    padding: 0;
+  }
+  .page-homepage .what-happens-today .section-2-other li {
+    margin-left: 0px;
+    padding: 5px;
+  }
+}
+
 .page-homepage .what-happens-today .sec-2 {
   max-width: 5%;
+}
+
+.page-homepage .what-happens-today .image-mockup {
+  width: 60%;
+}
+
+.page-homepage .what-happens-today .mockup-section {
+  padding-top: 40px;
 }
 
 .page-homepage .what-happens-today .image-wrapper {
