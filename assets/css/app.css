@@ -11391,7 +11391,7 @@ img {
 
 .select2-container--default .select2-selection--single .select2-selection__placeholder {
   color: #6c757d;
-  font-size: 0.85em;
+  font-size: 11.56px;
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
@@ -11561,7 +11561,7 @@ img {
 }
 
 .page-homepage header {
-  background: transparent url("../images/header-background.jpg") no-repeat center center/cover;
+  background: transparent url("../images/video-background.jpg") no-repeat center center/cover;
   height: 90vh;
 }
 
@@ -11699,7 +11699,7 @@ img {
   margin-bottom: 1em;
 }
 
-.page-homepage .how-it-will-change h3 {
+.page-homepage .how-it-will-change h3.how-it-will-change-subtitle {
   width: 55%;
   line-height: 1.45em;
   margin: 1em auto 0.5em;
@@ -11707,19 +11707,21 @@ img {
 }
 
 @media (max-width: 767.98px) {
-  .page-homepage .how-it-will-change h3 {
+  .page-homepage .how-it-will-change h3.how-it-will-change-subtitle {
     width: 100%;
   }
 }
 
 @media (max-width: 767.98px) {
-  .page-homepage .how-it-will-change .p-sm-50 {
-    padding: 0 50px;
+  .page-homepage .how-it-will-change .small-img img {
+    width: 150px;
+    margin: 0 auto;
+    display: block;
   }
 }
 
 .page-homepage .how-it-works {
-  background: transparent url("../images/how-it-works-background.jpg") no-repeat center center/cover;
+  background: transparent url("../images/video-background.jpg") no-repeat center center/cover;
   padding: 5em;
 }
 

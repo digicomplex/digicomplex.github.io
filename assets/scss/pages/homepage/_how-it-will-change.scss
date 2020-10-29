@@ -4,7 +4,7 @@
     margin-bottom: 1em;
   }
 
-  h3 {
+  h3.how-it-will-change-subtitle {
     width: 55%;
     line-height: 1.45em;
     margin: 1em auto 0.5em;
@@ -14,10 +14,13 @@
       width: 100%;
     }
   }
-  
-  .p-sm-50{
+  .small-img {
     @include media-breakpoint-down(sm) {
-      padding: 0 50px;
+      img {
+        width: 150px;
+        margin: 0 auto;
+        display: block;
+      }
     }
   }
 }
