@@ -37,7 +37,7 @@ $(document).ready(function () {
                 var data = "%" + (params["term"] || "") + "%";
                 var query = JSON.stringify({
                     query: `{
-                    complexes(where: {name: {_like: "%${data}%"}}) {
+                    complexes(where: {name: {_like: "%${data}%"}}, limit: 20) {
                         name
                         slug
                     }
