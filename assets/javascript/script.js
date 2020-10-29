@@ -25,6 +25,7 @@ $(document).ready(function () {
     $("#aa-search-input").select2({
         ajax: {
             delay: 300,
+            placeholder: "Search for your complex...",
             url: 'https://db.getstaxapp.com/v1/graphql',
             type: 'POST',
             beforeSend: function(request) {
@@ -65,6 +66,8 @@ $(document).ready(function () {
     
     // Sign up
     $('#intent').on('submit', function (e) {
+        $("#submit .spinner").removeClass('d-none')
+        $("#submit .text").addClass('d-none')
         e.preventDefault();
         console.log('*********************')
         var formData = $( this ).serializeArray()
@@ -101,11 +104,24 @@ $(document).ready(function () {
                       
                     },
                   }),
+            success: function(data){
+                localStorage.setItem("user", data.data.insert_users_one.id);
+                localStorage.setItem("slug", data.data.insert_users_one.complex_slug);
+                $("#submit .text").removeClass('d-none')
+                $("#submit .spinner").addClass('d-none')
+                $(".message").text("You succeccfully signed in.....").addClass('text-success')
+                
+            },
+            error: function(){
+                $("#submit .text").removeClass('d-none')
+                $("#submit .spinner").addClass('d-none')
+                $(".message").text("Something went wrong").addClass('text-danger')
+            }      
           }).done(function(data) {
-              localStorage.setItem("user", data.data.insert_users_one.id);
-              localStorage.setItem("slug", data.data.insert_users_one.complex_slug);
+            localStorage.setItem("user", data.data.insert_users_one.id);
+            localStorage.setItem("slug", data.data.insert_users_one.complex_slug);
 
-          });
+        });
        
     });
 
