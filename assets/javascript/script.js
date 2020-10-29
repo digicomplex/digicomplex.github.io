@@ -260,27 +260,20 @@ function openCompletedModal(complexSlug) {
 }
 
 function autoInitiateComplex() {
-    var urlParams = new URLSearchParams(location.search),
+    var urlParams = new URL(window.location.href),
         params = null;
-    for (const [key, value] of urlParams) {
-        params = value
-    }
-    if (urlParams.has('slug')) {
+    if (urlParams.searchParams.has('complex')) {
         var query = `
         query MyQuery($input: String!) {
             complexes(where: {slug: {_eq: $input}}) {
-            id
             name
             slug
         }
       }`,
-            slug = '';
+            params = urlParams.searchParams.get('complex');
         $.ajax({
             url: "https://db.getstaxapp.com/v1/graphql",
             type: "POST",
-            headers: {
-                "x-hasura-access-key": "bella40deplorel98houston86enfant55house",
-            },
             data: JSON.stringify({
                 query: query,
                 variables: {
@@ -291,7 +284,7 @@ function autoInitiateComplex() {
                 if (data.data.complexes.length > 0) {
                     var appendData = data.data.complexes[0]
 
-                    var newOption = new Option(appendData.name, appendData.id, false, false);
+                    var newOption = new Option(appendData.name, appendData.slug, true, true);
                     $("#aa-search-input").append(newOption).trigger('change');
                 }
             },
