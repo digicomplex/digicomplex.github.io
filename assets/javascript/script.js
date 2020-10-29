@@ -22,9 +22,9 @@ $(document).ready(function () {
   });
 
   $("#aa-search-input").select2({
+    placeholder: "Search for your complex...",
     ajax: {
       delay: 300,
-      placeholder: "Search for your complex...",
       url: "https://db.getstaxapp.com/v1/graphql",
       type: "POST",
       beforeSend: function (request) {
