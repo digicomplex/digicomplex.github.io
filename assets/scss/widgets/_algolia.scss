@@ -9,8 +9,8 @@
   }
   .select2-selection.select2-selection--single{
     height: 40px;
-    border-radius: 25px;
-    .select2-selection__rendered:{
+    border-radius: 25px; 
+    .select2-selection__rendered{
       height: 40px;
       line-height: 40px;
       font-size: 12px;
@@ -18,7 +18,7 @@
   }
 }
 
-
+ 
 .aa-input-search {
   width: 100%;
   padding: 12px 28px 12px 12px;
