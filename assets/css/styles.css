@@ -8185,14 +8185,19 @@ img {
 
 .thats-about{
   padding: 15px;
-  color: white !important;
+  color:  rgb(225, 225, 225);
   background: #02acb3;
   border-radius: 20px;
 }
-.thats-about:hover{
+.thats-about:hover .custom-h2{
   color: white !important;
-  background: #016a6d;
+  opacity: 1;
   border-radius: 20px;
+}
+
+.thats-about:hover{
+  color: white;
+  background-color: #049da2;
 }
 
 .section-2{
@@ -8203,7 +8208,8 @@ img {
 }
 
 .custom-h2{
-  color: white;
+  color: rgb(225, 225, 225);
+  opacity: 1;
   font-weight: 600 !important;
 }
 
