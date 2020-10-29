@@ -10793,6 +10793,7 @@ header p {
 
 footer {
   text-transform: uppercase;
+  z-index: 100;
 }
 
 footer.container, footer.container-fluid, footer.container-sm, footer.container-md, footer.container-lg, footer.container-xl, footer.container-xxl {

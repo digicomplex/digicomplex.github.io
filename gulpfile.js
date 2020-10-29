@@ -70,18 +70,18 @@ function js() {
             './assets/javascript/*.js',
             '!./assets/javascript/*.min.js'
         ])
-        .pipe(uglify())
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest('./assets/js'))
+        // .pipe(uglify())
+        // .pipe(rename({
+        //     suffix: '.min'
+        // }))
+        // .pipe(gulp.dest('./assets/js'))
         .pipe(browsersync.stream());
 }
 
 // Watch files
 function watchFiles() {
     gulp.watch("./assets/scss/**/*", css);
-    // gulp.watch(["./assets/javascript/**/*", "!./assets/javascript/**/*.min.js"], js);
+    gulp.watch(["./assets/javascript/**/*", "!./assets/javascript/**/*.min.js"], js);
     gulp.watch("./**/*.html", browserSyncReload);
 }
 
