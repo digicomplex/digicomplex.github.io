@@ -149,7 +149,7 @@ $(document).ready(function () {
         var userCount = (localStorage.getItem('user_count') > 25) ? 0 : (25 - localStorage.getItem('user_count'))
         var complex = localStorage.getItem('complex');
         var slug = localStorage.getItem('slug');
-        var message = `https://telegram.me/share/url?url=https://www.digicomplex.co&text=Hi! I just found out that we can have a private social network exclusively for our apartment complex. Interesting right? Check out Digicomplex and let's sign-up to get it activated fast @ https://www.digicomplex.co`
+        var message = `https://telegram.me/share/url?url=https://www.digicomplex.co&tex t=Hi! I just found out that we can have a private social network exclusively for our apartment complex. Interesting right? Check out Digicomplex and let's sign-up to get it activated fast @ https://www.digicomplex.co`
         if (slug) {
             message =
                 `https://telegram.me/share/url?url=https://www.digicomplex.co?complex=${slug || ""} &text=Hey, I just signed up ${complex || ""}  for Digicomplex. They will create a private network just for us! We need ${userCount} more registrations before Digicomplex comes to ${complex || "us"} . Go sign up now @ https://www.digicomplex.co?slug=${slug || ""}`

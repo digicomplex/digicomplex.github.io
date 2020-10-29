@@ -11391,7 +11391,7 @@ img {
 
 .select2-container--default .select2-selection--single .select2-selection__placeholder {
   color: #6c757d;
-  font-size: 1em;
+  font-size: 11.56px;
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
@@ -11665,7 +11665,7 @@ img {
   margin-bottom: 1em;
 }
 
-.page-homepage .how-it-will-change h3 {
+.page-homepage .how-it-will-change h3.how-it-will-change-subtitle {
   width: 55%;
   line-height: 1.45em;
   margin: 1em auto 0.5em;
@@ -11673,7 +11673,7 @@ img {
 }
 
 @media (max-width: 767.98px) {
-  .page-homepage .how-it-will-change h3 {
+  .page-homepage .how-it-will-change h3.how-it-will-change-subtitle {
     width: 100%;
   }
 }

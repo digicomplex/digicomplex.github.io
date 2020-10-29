@@ -4,7 +4,7 @@
     margin-bottom: 1em;
   }
 
-  h3 {
+  h3.how-it-will-change-subtitle {
     width: 55%;
     line-height: 1.45em;
     margin: 1em auto 0.5em;
@@ -14,7 +14,6 @@
       width: 100%;
     }
   }
-
   .small-img {
     @include media-breakpoint-down(sm) {
       img {
