@@ -7493,7 +7493,7 @@ a.text-dark:hover, a.text-dark:focus {
         padding-bottom: 0;
         border-bottom: 0 transparent; } }
     .navbar .nav-item .nav-link {
-      color: rgba(0, 0, 0, 0.75); }
+      color: white; }
       @media (max-width: 767.98px) {
         .navbar .nav-item .nav-link {
           padding: 0.25em 0;
@@ -8205,5 +8205,22 @@ img {
 .custom-h2{
   color: white;
   font-weight: 600 !important;
+}
+
+/* Header */
+
+.navbar-fixed-top.scrolled .nav-link {
+  color:black;
+}
+
+
+.navbar-fixed-top.scrolled {
+  color:black;
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
+}
+
+.landing-main{
+  text-shadow: 0px 5px 7px #00000063;
 }
 /*# sourceMappingURL=styles.css.map */
