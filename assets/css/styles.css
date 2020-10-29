@@ -8206,10 +8206,10 @@ img {
 }
 
 .section-2{
-  text-align: center;
-    list-style-type: none;
-    padding-top: 20px;
-    margin-left: -40px;
+  position: relative;
+  text-align: left;
+  list-style-type: none;
+  padding-top: 20px;
 }
 
 .custom-h2{
