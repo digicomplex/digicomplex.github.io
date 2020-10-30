@@ -20,12 +20,12 @@
     li{
       font-size: medium;
       font-style: italic;
-      margin-left: -30px;
+      margin-left: -40px;
       padding: 5px;
     }
     
     @include media-breakpoint-down(sm){
-      text-align: left !important;
+      text-align: center !important;
       padding: 0;
       li{
         margin-left: 0px;
@@ -37,18 +37,18 @@
   .section-2-other{
     color: $black;
     position: relative;
-    text-align: left;
+    text-align: right;
     list-style-type: none;
     padding-top: 20px;
     li{
       font-size: medium;
       font-style: italic;
-      margin-left: -30px;
+      margin-left: -40px;
       padding: 5px;
     }
     
     @include media-breakpoint-down(sm){
-      text-align: left !important;
+      text-align: center !important;
       padding: 0;
       li{
         margin-left: 0px;
@@ -61,7 +61,7 @@
   }
 
   .image-mockup{
-    width: 60%;
+    width: 85%;
   }
   .mockup-section{
     padding-top: 40px;
