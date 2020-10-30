@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    $(".inputs").keyup(function () {
+        if (this.value.length == this.maxLength) {
+          $(this).next('.inputs').focus();
+        }
+    });
+
     // set slug in select2
     autoInitiateComplex();
 
@@ -67,7 +73,11 @@ $(document).ready(function () {
         var data = e.params.data;
         $("[name='complex_slug']").val(data["slug"]);
         $("[name='complex_name']").val(data["text"]);
+        console.log($(this).next('.inputs'))
+        $("[name='mobile']").focus();
+           
     });
+    
 
     // Sign up
     $("#intent").on("submit", function (e) {
@@ -113,6 +123,11 @@ $(document).ready(function () {
                 //     .text("Congratulations! 🙌 You are now a part of DigiComplex!!!")
                 //     .addClass("text-success");
                 openCompletedModal(complexSlug);
+                fbq('track', 'CompleteRegistration', {
+                    currency: 'inr',
+                });
+                var headingText = `A private social network<br>for ${complexName}`
+                $(".landing-text").empty().append(headingText)
             },
             error: function () {
                 $("#submit .text").removeClass("d-none");
@@ -161,22 +176,22 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    // Share copy
-    $(".share-copy").on("click", function (e) {
+
+    $('.share-copy').on('click', function (e) {
         var message = `Hi! I just found out that we can have a private social network exclusively for our apartment complex. Interesting right? Check out Digicomplex and let's sign-up to get it activated fast @ https://www.digicomplex.co`
         if (localStorage.getItem('slug')) {
             message =
                 `Hey, I just signed up for Digicomplex. They will create a private network just for us! We need just a few more registrations before Digicomplex comes to our complex! Go sign up now @ https://www.digicomplex.co?slug=${localStorage.getItem('slug') || ""} !`
         }
-        copy(
-            message
-        );
-        console.log(e);
         $(".share-copy").html(`<i class="fal fa-check-double"></i>`);
+        $(".share-copy-alert").removeClass("d-none")
         setTimeout(function () {
             $(".share-copy").html(`<i class="fal fa-clipboard"></i>`);
+            $(".share-copy-alert").addClass("d-none")
+
         }, 5000);
-        alert("Message copied to clipboard")
+        copy(message);
+
         e.preventDefault();
     });
 });
