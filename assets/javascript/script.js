@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    $(".inputs").keyup(function () {
+        if (this.value.length == this.maxLength) {
+          $(this).next('.inputs').focus();
+        }
+    });
+
     // set slug in select2
     autoInitiateComplex();
 
@@ -67,7 +73,11 @@ $(document).ready(function () {
         var data = e.params.data;
         $("[name='complex_slug']").val(data["slug"]);
         $("[name='complex_name']").val(data["text"]);
+        console.log($(this).next('.inputs'))
+        $("[name='mobile']").focus();
+           
     });
+    
 
     // Sign up
     $("#intent").on("submit", function (e) {
