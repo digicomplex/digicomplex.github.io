@@ -11625,7 +11625,7 @@ img {
 .page-homepage .what-happens-today .section-2 {
   color: #000;
   position: relative;
-  text-align: left;
+  text-align: center;
   list-style-type: none;
   padding-top: 20px;
 }
@@ -11633,13 +11633,13 @@ img {
 .page-homepage .what-happens-today .section-2 li {
   font-size: medium;
   font-style: italic;
-  margin-left: -30px;
+  margin-left: -40px;
   padding: 5px;
 }
 
 @media (max-width: 767.98px) {
   .page-homepage .what-happens-today .section-2 {
-    text-align: left !important;
+    text-align: center !important;
     padding: 0;
   }
   .page-homepage .what-happens-today .section-2 li {
@@ -11651,7 +11651,7 @@ img {
 .page-homepage .what-happens-today .section-2-other {
   color: #000;
   position: relative;
-  text-align: left;
+  text-align: center;
   list-style-type: none;
   padding-top: 20px;
 }
@@ -11659,13 +11659,13 @@ img {
 .page-homepage .what-happens-today .section-2-other li {
   font-size: medium;
   font-style: italic;
-  margin-left: -30px;
+  margin-left: -40px;
   padding: 5px;
 }
 
 @media (max-width: 767.98px) {
   .page-homepage .what-happens-today .section-2-other {
-    text-align: left !important;
+    text-align: center !important;
     padding: 0;
   }
   .page-homepage .what-happens-today .section-2-other li {
