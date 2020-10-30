@@ -126,6 +126,8 @@ $(document).ready(function () {
                 fbq('track', 'CompleteRegistration', {
                     currency: 'inr',
                 });
+                var headingText = `A private social network<br>for ${complexName}`
+                $(".landing-text").empty().append(headingText)
             },
             error: function () {
                 $("#submit .text").removeClass("d-none");
